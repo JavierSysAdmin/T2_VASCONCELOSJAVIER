@@ -1,0 +1,17 @@
+<p>enrollment works!</p>
+<mat-card>
+    <mat-card-title>Calculadora de Matrícula</mat-card-title>
+    <mat-card-content>
+      <form [formGroup]="enrollmentForm" (ngSubmit)="calculateEnrollment()">
+        <mat-form-field appearance="fill">
+          <mat-label>Número de Materias</mat-label>
+          <input matInput placeholder="Número de Materias" formControlName="subjects" type="number">
+        </mat-form-field>
+        <button mat-raised-button color="primary" type="submit">Calcular Matrícula</button>
+      </form>
+      <div *ngIf="totalCost !== null">
+        <p>Costo Total: {{ totalCost | currency:'PEN' }}</p>
+      </div>
+    </mat-card-content>
+  </mat-card>
+  

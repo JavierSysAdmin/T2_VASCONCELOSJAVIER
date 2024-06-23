@@ -1,0 +1,24 @@
+<mat-card>
+    <mat-card-title>Control de Alcoholemia</mat-card-title>
+    <mat-card-content>
+      <form [formGroup]="breathalyzerForm" (ngSubmit)="checkAlcoholLevel()">
+        <mat-form-field appearance="fill">
+          <mat-label>Tipo de Vehículo</mat-label>
+          <mat-select formControlName="vehicleType">
+            <mat-option *ngFor="let vehicle of vehicles" [value]="vehicle.type">
+              {{ vehicle.name }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Nivel de Alcohol (mg/L)</mat-label>
+          <input matInput placeholder="Nivel de Alcohol" formControlName="alcoholLevel" type="number">
+        </mat-form-field>
+        <button mat-raised-button color="primary" type="submit">Verificar</button>
+      </form>
+      <div *ngIf="result !== null">
+        <p>{{ result }}</p>
+      </div>
+    </mat-card-content>
+  </mat-card>
+  

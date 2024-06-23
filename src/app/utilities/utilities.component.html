@@ -1,0 +1,20 @@
+<mat-card>
+    <mat-card-title>Calculadora de Utilidades</mat-card-title>
+    <mat-card-content>
+      <form [formGroup]="utilitiesForm" (ngSubmit)="calculateUtilities()">
+        <mat-form-field appearance="fill">
+          <mat-label>Salario Mensual</mat-label>
+          <input matInput placeholder="Salario Mensual" formControlName="salary" type="number">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Años Trabajados</mat-label>
+          <input matInput placeholder="Años Trabajados" formControlName="years" type="number">
+        </mat-form-field>
+        <button mat-raised-button color="primary" type="submit">Calcular Utilidades</button>
+      </form>
+      <div *ngIf="utilities !== null">
+        <p>Utilidad Calculada: {{ utilities | currency }}</p>
+      </div>
+    </mat-card-content>
+  </mat-card>
+  
